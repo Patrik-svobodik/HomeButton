@@ -9,14 +9,6 @@ import UIKit
 extension UIApplication {
 
     static var addedButton: Bool = false
-    override open var next: UIResponder? {
-        // Called before applicationDidFinishLaunching
-        if !UIApplication.addedButton {
-            UIApplication.addedButton = true
-            HomeButton.add(to: self)
-        }
-        return super.next
-    }
 
 }
 
@@ -34,7 +26,6 @@ public struct HomeButton {
 
         let frame = CGRect(x: 0, y: window.bounds.height - barHeight, width: window.bounds.width, height: barHeight)
         let buttonWindow = UIWindow(frame: frame)
-        buttonWindow.windowLevel = UIWindowLevelStatusBar
         buttonWindow.isHidden = false
         buttonWindow.rootViewController = HomeButtonBarViewController()
         HomeButton.buttonWindow = buttonWindow
