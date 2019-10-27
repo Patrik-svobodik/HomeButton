@@ -29,15 +29,6 @@ public struct HomeButton {
     /// Adds the home button to the application.
     /// This function is called automatically by linking the framework.
     public static func add(to application: UIApplication) {
-        // Get status bar to determine if running in a "modern" style. Do nothing otherwise.
-        let statusBarSelector = NSSelectorFromString("statusBar")
-        if application.responds(to: statusBarSelector) {
-            let statusBar = application.perform(statusBarSelector).takeUnretainedValue()
-            if statusBar.classForCoder != NSClassFromString("UIStatusBar_Modern") {
-                return
-            }
-        }
-
         // Get first window
         guard let window = application.keyWindow ?? application.windows.first else { fatalError("No windows found in application.") }
 
